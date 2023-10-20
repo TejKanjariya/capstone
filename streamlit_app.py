@@ -7,9 +7,9 @@ model_filename = 'random_forest_model.pkl'
 with open(model_filename, 'rb') as model_file:
     model = pickle.load(model_file)
 
-# Load the trained neural model
-with open('neural_network_model.pkl', 'rb') as neural_model_file:
-    neural_model = pickle.load(neural_model_file)
+# # Load the trained neural model
+# with open('neural_network_model.pkl', 'rb') as neural_model_file:
+#     neural_model = pickle.load(neural_model_file)
 
 # Read the Excel file into a DataFrame
 excel_file = 'ui_player_data.xlsx'
@@ -115,7 +115,7 @@ input42 = st.selectbox("Select Current Ball", min_value=0, max_value=10, value=0
 # input10 = st.slider("Input 10", min_value=0, max_value=10, value=5)
 # neural_input = [input41, input42, player_data_dict[input4][1], player_data_dict[input4][2], player_data_dict[input4][0]]
 neural_input = pd.DataFrame({'Over': [input41], 'Delivery': [input42], 'high_score_class': [player_data_dict[input4][1]], 'strike_class': [player_data_dict[input4][2]], 'not_out_class': [player_data_dict[input4][0]]})
-print("input here :-", neural_input)
+# print("input here :-", neural_input)
 if st.button("Predict"):
     # Map selected values to their respective integer values
     # input1 = batting_team[input1]
@@ -125,8 +125,9 @@ if st.button("Predict"):
 
     # Make a prediction using your model
     # inputs = [input1, input2, input3, input4, input5, input6, input7, input8, input9, input10]
-    prediction = neural_model.predict([neural_input])
-    st.write("neural prediction :-", prediction)
+    # prediction = neural_model.predict([neural_input])
+    # st.write("neural prediction :-", prediction)
+    st.write("neural prediction :-")
     # if prediction == 0:
     #     st.write("The team will Lose")
     # elif prediction == 1:
