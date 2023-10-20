@@ -22,7 +22,7 @@ player_data_dict = {}
 for index, row in df.iterrows():
     player_name = row['Player Name']
     total_not_outs = row['Total Not Outs']
-    high score = row['High Score']
+    high_score = row['High Score']
     strike_rate = row['Strike Rate']
 
     # Create a list with the three desired columns
