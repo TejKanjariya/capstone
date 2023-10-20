@@ -1,6 +1,7 @@
 import streamlit as st
-import pickle
 import sklearn
+import pickle
+
 
 # Your model loading code (e.g., using joblib, pickle, or your preferred method)
 # Load the trained model from the pickle file
