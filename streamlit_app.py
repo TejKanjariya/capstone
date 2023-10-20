@@ -22,7 +22,7 @@ player_data_dict = {}
 for index, row in df.iterrows():
     player_name = row['Player Name']
     total_not_outs = row['Total Not Outs']
-    high_score = row['High Score']
+    high_score = row['Highest Score']
     strike_rate = row['Strike Rate']
 
     # Create a list with the three desired columns
@@ -114,7 +114,15 @@ input42 = st.selectbox("Select Current Ball", min_value=0, max_value=10, value=0
 # input9 = st.number_input("Input 9", value=0.0)
 # input10 = st.slider("Input 10", min_value=0, max_value=10, value=5)
 # neural_input = [input41, input42, player_data_dict[input4][1], player_data_dict[input4][2], player_data_dict[input4][0]]
-neural_input = pd.DataFrame({'Over': [input41], 'Delivery': [input42], 'high_score_class': [player_data_dict[input4][1]], 'strike_class': [player_data_dict[input4][2]], 'not_out_class': [player_data_dict[input4][0]]})
+H1 = max(0, 0.9110675 * input41 - 0.03449272 * input42 + 1.0922453 * player_data_dict[input4][1] + 0.6379537 * player_data_dict[input4][2] - 0.6832345 * player_data_dict[input4][0])
+H2 = max(0, 0.34656823 * input41 - 0.7189315 * input42 + 0.26758012 * player_data_dict[input4][1] + 0.02426003 * player_data_dict[input4][2] - 0.70526344 * player_data_dict[input4][0])
+H3 = max(0, -1.5374088 * input41 + 0.046777 * input42 + 1.6355581 * player_data_dict[input4][1] - 1.8444831 * player_data_dict[input4][2] - 0.8660773 * player_data_dict[input4][0])
+H4 = max(0, 0.4858154 * input41 + 0.07428534 * input42 + 0.6507748 * player_data_dict[input4][1] + 0.7169861 * player_data_dict[input4][2] + 0.3320721 * player_data_dict[input4][0])
+H5 = max(0, 0.42746195 * input41 + 0.16714458 * input42 + 0.35787955 * player_data_dict[input4][1] + 0.20249411 * player_data_dict[input4][2] + 0.17194664 * player_data_dict[input4][0])
+
+output = -2.0390031 * H1 - 0.65763295 * H2 + 2.231145 * H3 - 2.4533222 * H4 + 0.27485844 * H5
+
+# neural_input = pd.DataFrame({'Over': [input41], 'Delivery': [input42], 'high_score_class': [player_data_dict[input4][1]], 'strike_class': [player_data_dict[input4][2]], 'not_out_class': [player_data_dict[input4][0]]})
 # print("input here :-", neural_input)
 if st.button("Predict"):
     # Map selected values to their respective integer values
@@ -127,7 +135,7 @@ if st.button("Predict"):
     # inputs = [input1, input2, input3, input4, input5, input6, input7, input8, input9, input10]
     # prediction = neural_model.predict([neural_input])
     # st.write("neural prediction :-", prediction)
-    st.write("neural prediction :-")
+    st.write("neural prediction :-", output)
     # if prediction == 0:
     #     st.write("The team will Lose")
     # elif prediction == 1:
