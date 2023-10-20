@@ -111,7 +111,7 @@ input5 = st.number_input("Runs Left", min_value=0, max_value=10, value=0, step=1
 input6 = st.number_input("Wicket Left", min_value=0, max_value=10, value=0, step=1)
 input7 = st.number_input("Target", min_value=0, max_value=10, value=0, step=1)
 input8 = st.number_input("Current Run Rate", value=0.0)
-input9 = st.number_input("Current Run Rate", value=0.0)
+input9 = st.number_input("Required Run Rate", value=0.0)
 input10 = st.slider("Balls Left", min_value=0, max_value=10, value=5)
 # neural_input = [input41, input42, player_data_dict[input4][1], player_data_dict[input4][2], player_data_dict[input4][0]]
 
@@ -123,6 +123,7 @@ if st.button("Predict"):
     input1 = batting_team[input1]
     input2 = bowling_team[input2]
     input3 = city[input3]
+    input4 = 50
     # input4 = player_data_dict[input4]
     # H1 = max(0, 0.9110675 * input41 - 0.03449272 * input42 + 1.0922453 * player_data_dict[input4][1] + 0.6379537 * player_data_dict[input4][2] - 0.6832345 * player_data_dict[input4][0])
     # H2 = max(0, 0.34656823 * input41 - 0.7189315 * input42 + 0.26758012 * player_data_dict[input4][1] + 0.02426003 * player_data_dict[input4][2] - 0.70526344 * player_data_dict[input4][0])
@@ -132,7 +133,7 @@ if st.button("Predict"):
 
     # output = -2.0390031 * H1 - 0.65763295 * H2 + 2.231145 * H3 - 2.4533222 * H4 + 0.27485844 * H5
     # Make a prediction using your model
-    inputs = [input1, input2, input3, input4, input5, input6, input7, input8, input9, input10]
+    inputs = [input1, input2, input3, input5, input10, input6, input7, input8, input9, input4]
     prediction = model.predict([inputs])
     
     # prediction = neural_model.predict([neural_input])
