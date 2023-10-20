@@ -137,7 +137,7 @@ if st.button("Predict"):
     prediction = model.predict([inputs])
     
     # prediction = neural_model.predict([neural_input])
-    st.write("neural prediction :-", prediction)
+    # st.write("neural prediction :-", prediction)
     # st.write("neural prediction :-", [input41, input42, player_data_dict[input4][1], player_data_dict[input4][2], player_data_dict[input4][0]])
     if prediction == 0:
         st.write("The team will Lose")
