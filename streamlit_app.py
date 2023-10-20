@@ -112,7 +112,7 @@ input6 = st.number_input("Wicket Left", min_value=0, value=0, step=1)
 input7 = st.number_input("Target", min_value=0, value=0, step=1)
 input8 = st.number_input("Current Run Rate", value=0.0)
 input9 = st.number_input("Required Run Rate", value=0.0)
-input10 = st.slider("Balls Left", min_value=0, max_value=10, value=5)
+input10 = st.number_input("Balls Left", value=0.0)
 # neural_input = [input41, input42, player_data_dict[input4][1], player_data_dict[input4][2], player_data_dict[input4][0]]
 
 
