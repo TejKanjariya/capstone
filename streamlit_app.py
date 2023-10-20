@@ -1,6 +1,4 @@
 import streamlit as st
-import sklearn
-
 
 
 # Your model loading code (e.g., using joblib, pickle, or your preferred method)
