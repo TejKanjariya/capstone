@@ -101,18 +101,18 @@ city = {
 st.title("ML Model Deployment with Streamlit")
 
 # Input elements (10 inputs)
-# input1 = st.selectbox("Select Batting Team", list(batting_team.keys()))
-# input2 = st.selectbox("Select Bowling Team", list(bowling_team.keys()))
-# input3 = st.selectbox("Select City", list(city.keys()))
+input1 = st.selectbox("Select Batting Team", list(batting_team.keys()))
+input2 = st.selectbox("Select Bowling Team", list(bowling_team.keys()))
+input3 = st.selectbox("Select City", list(city.keys()))
 input4 = st.selectbox("Select Current Batsman", list(player_data_dict.keys()))
 input41 = st.number_input("Select Current Over")
 input42 = st.number_input("Select Current Ball")
-# input5 = st.number_input("Input 5", min_value=0, max_value=10, value=0, step=1)
-# input6 = st.number_input("Input 6", min_value=0, max_value=10, value=0, step=1)
-# input7 = st.number_input("Input 7", min_value=0, max_value=10, value=0, step=1)
-# input8 = st.number_input("Input 8", value=0.0)
-# input9 = st.number_input("Input 9", value=0.0)
-# input10 = st.slider("Input 10", min_value=0, max_value=10, value=5)
+input5 = st.number_input("Runs Left", min_value=0, max_value=10, value=0, step=1)
+input6 = st.number_input("Wicket Left", min_value=0, max_value=10, value=0, step=1)
+input7 = st.number_input("Target", min_value=0, max_value=10, value=0, step=1)
+input8 = st.number_input("Current Run Rate", value=0.0)
+input9 = st.number_input("Current Run Rate", value=0.0)
+input10 = st.slider("Balls Left", min_value=0, max_value=10, value=5)
 # neural_input = [input41, input42, player_data_dict[input4][1], player_data_dict[input4][2], player_data_dict[input4][0]]
 
 
@@ -120,23 +120,25 @@ input42 = st.number_input("Select Current Ball")
 # print("input here :-", neural_input)
 if st.button("Predict"):
     # Map selected values to their respective integer values
-    # input1 = batting_team[input1]
-    # input2 = bowling_team[input2]
-    # input3 = city[input3]
+    input1 = batting_team[input1]
+    input2 = bowling_team[input2]
+    input3 = city[input3]
     # input4 = player_data_dict[input4]
-    H1 = max(0, 0.9110675 * input41 - 0.03449272 * input42 + 1.0922453 * player_data_dict[input4][1] + 0.6379537 * player_data_dict[input4][2] - 0.6832345 * player_data_dict[input4][0])
-    H2 = max(0, 0.34656823 * input41 - 0.7189315 * input42 + 0.26758012 * player_data_dict[input4][1] + 0.02426003 * player_data_dict[input4][2] - 0.70526344 * player_data_dict[input4][0])
-    H3 = max(0, -1.5374088 * input41 + 0.046777 * input42 + 1.6355581 * player_data_dict[input4][1] - 1.8444831 * player_data_dict[input4][2] - 0.8660773 * player_data_dict[input4][0])
-    H4 = max(0, 0.4858154 * input41 + 0.07428534 * input42 + 0.6507748 * player_data_dict[input4][1] + 0.7169861 * player_data_dict[input4][2] + 0.3320721 * player_data_dict[input4][0])
-    H5 = max(0, 0.42746195 * input41 + 0.16714458 * input42 + 0.35787955 * player_data_dict[input4][1] + 0.20249411 * player_data_dict[input4][2] + 0.17194664 * player_data_dict[input4][0])
+    # H1 = max(0, 0.9110675 * input41 - 0.03449272 * input42 + 1.0922453 * player_data_dict[input4][1] + 0.6379537 * player_data_dict[input4][2] - 0.6832345 * player_data_dict[input4][0])
+    # H2 = max(0, 0.34656823 * input41 - 0.7189315 * input42 + 0.26758012 * player_data_dict[input4][1] + 0.02426003 * player_data_dict[input4][2] - 0.70526344 * player_data_dict[input4][0])
+    # H3 = max(0, -1.5374088 * input41 + 0.046777 * input42 + 1.6355581 * player_data_dict[input4][1] - 1.8444831 * player_data_dict[input4][2] - 0.8660773 * player_data_dict[input4][0])
+    # H4 = max(0, 0.4858154 * input41 + 0.07428534 * input42 + 0.6507748 * player_data_dict[input4][1] + 0.7169861 * player_data_dict[input4][2] + 0.3320721 * player_data_dict[input4][0])
+    # H5 = max(0, 0.42746195 * input41 + 0.16714458 * input42 + 0.35787955 * player_data_dict[input4][1] + 0.20249411 * player_data_dict[input4][2] + 0.17194664 * player_data_dict[input4][0])
 
-    output = -2.0390031 * H1 - 0.65763295 * H2 + 2.231145 * H3 - 2.4533222 * H4 + 0.27485844 * H5
+    # output = -2.0390031 * H1 - 0.65763295 * H2 + 2.231145 * H3 - 2.4533222 * H4 + 0.27485844 * H5
     # Make a prediction using your model
-    # inputs = [input1, input2, input3, input4, input5, input6, input7, input8, input9, input10]
+    inputs = [input1, input2, input3, input4, input5, input6, input7, input8, input9, input10]
+    prediction = model.predict([inputs])
+    
     # prediction = neural_model.predict([neural_input])
-    st.write("neural prediction :-", output)
-    st.write("neural prediction :-", [input41, input42, player_data_dict[input4][1], player_data_dict[input4][2], player_data_dict[input4][0]])
-    # if prediction == 0:
-    #     st.write("The team will Lose")
-    # elif prediction == 1:
-    #     st.write("The team will Win")
+    st.write("neural prediction :-", prediction)
+    # st.write("neural prediction :-", [input41, input42, player_data_dict[input4][1], player_data_dict[input4][2], player_data_dict[input4][0]])
+    if prediction == 0:
+        st.write("The team will Lose")
+    elif prediction == 1:
+        st.write("The team will Win")
