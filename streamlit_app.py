@@ -1,12 +1,32 @@
 import streamlit as st
 import sklearn
 import pickle
+import pandas as pd
 
-# Your model loading code (e.g., using joblib, pickle, or your preferred method)
-# Load the trained model from the pickle file
+# Loading the trained model from the pickle file
 model_filename = 'random_forest_model.pkl'
 with open(model_filename, 'rb') as model_file:
     model = pickle.load(model_file)
+
+# Read the Excel file into a DataFrame
+excel_file = 'ui_player_data.xlsx'
+df = pd.read_excel(excel_file)
+
+# Create a dictionary
+player_data_dict = {}
+
+# Iterate through the DataFrame and populate the dictionary
+for index, row in df.iterrows():
+    player_name = row['Player Name']
+    total_not_outs = row['Total Not Outs']
+    high_score = row['High Score']
+    strike_rate = row['Strike Rate']
+    
+    # Create a list with the three desired columns
+    player_data = [total_not_outs, high_score, strike_rate]
+    
+    # Add the player data list to the dictionary using the player name as the key
+    player_data_dict[player_name] = player_data
 
 batting_team =
 {'Royal Challengers Bangalore': 0, 'Rising Pune Supergiant': 1, 'Kolkata Knight Riders': 2, 'Kings XI Punjab': 3, 'Delhi Daredevils': 4, 'Sunrisers Hyderabad': 5, 'Mumbai Indians': 6, 'Gujarat Lions': 7, 'Chennai Super Kings': 8, 'Rajasthan Royals': 9, 'Delhi Capitals': 10, 'Deccan Chargers': 11}
@@ -22,13 +42,29 @@ st.title("ML Model Deployment with Streamlit")
 # Input elements (10 inputs)
 input1 = st.number_input("Input 1")
 input2 = st.number_input("Input 2")
-# ...
+input3 = st.number_input("Input 1")
+input4 = st.number_input("Input 2")
+input5 = st.number_input("Input 1")
+input6 = st.number_input("Input 2")
+input7 = st.number_input("Input 1")
+input8 = st.number_input("Input 2")
+input9 = st.number_input("Input 1")
 input10 = st.number_input("Input 10")
 
 if st.button("Predict"):
     # Make a prediction using your model
-    inputs = [input1, input2, ..., input10]
+    inputs = [input1, input2, input3, input4, input5, input6, input7, input8, input9, input10]
     # prediction = model.predict(inputs)
 
     # st.write("Prediction:", prediction)
-    st.write("Prediction:- WORK PROGRESS")
+    if prediction == 0:
+        st.write(f"{input1} will Lose")
+    elif prediction == 1:
+        st.write(f"{input1} will Win")
+
+
+
+
+
+
+
