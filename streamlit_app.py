@@ -113,7 +113,8 @@ input42 = st.selectbox("Select Current Ball", min_value=0, max_value=10, value=0
 # input8 = st.number_input("Input 8", value=0.0)
 # input9 = st.number_input("Input 9", value=0.0)
 # input10 = st.slider("Input 10", min_value=0, max_value=10, value=5)
-neural_input = [input41, input42, player_data_dict[input4][1], player_data_dict[input4][2], player_data_dict[input4][0]]
+# neural_input = [input41, input42, player_data_dict[input4][1], player_data_dict[input4][2], player_data_dict[input4][0]]
+neural_input = pd.DataFrame({'Over': [input41], 'Delivery': [input42], 'high_score_class': [player_data_dict[input4][1]], 'strike_class': [player_data_dict[input4][2]], 'not_out_class': [player_data_dict[input4][0]]})
 print("input here :-", neural_input)
 if st.button("Predict"):
     # Map selected values to their respective integer values
