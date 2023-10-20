@@ -8,8 +8,8 @@ with open(model_filename, 'rb') as model_file:
     model = pickle.load(model_file)
 
 # Load the trained neural model
-with open('neural_network_model.pkl', 'rb') as model_file:
-    neural_model = pickle.load(model_file)
+with open('neural_network_model.pkl', 'rb') as neural_model_file:
+    neural_model = pickle.load(neural_model_file)
 
 # Read the Excel file into a DataFrame
 excel_file = 'ui_player_data.xlsx'
