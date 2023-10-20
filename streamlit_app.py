@@ -98,13 +98,17 @@ city = {
     'Ranchi': 33
 }
 
-st.title("ML Model Deployment with Streamlit")
+st.title("")
 
 # Input elements (10 inputs)
-input1 = st.selectbox("Select Batting Team", list(batting_team.keys()))
-input2 = st.selectbox("Select Bowling Team", list(bowling_team.keys()))
-input3 = st.selectbox("Select City", list(city.keys()))
-input4 = st.selectbox("Select Current Batsman", list(player_data_dict.keys()))
+# input1 = st.selectbox("Select Batting Team", list(batting_team.keys()))
+# input2 = st.selectbox("Select Bowling Team", list(bowling_team.keys()))
+# input3 = st.selectbox("Select City", list(city.keys()))
+# input4 = st.selectbox("Select Current Batsman", list(player_data_dict.keys()))
+input1 = st.selectbox("Select Batting Team", [''] + list(batting_team.keys()))
+input2 = st.selectbox("Select Bowling Team", [''] + list(bowling_team.keys()))
+input3 = st.selectbox("Select City", [''] + list(city.keys()))
+input4 = st.selectbox("Select Current Batsman", [''] + list(player_data_dict.keys()))
 input41 = st.number_input("Select Current Over")
 input42 = st.number_input("Select Current Ball")
 input5 = st.number_input("Runs Left", min_value=0, value=0, step=1)
@@ -140,6 +144,6 @@ if st.button("Predict"):
     # st.write("neural prediction :-", prediction)
     # st.write("neural prediction :-", [input41, input42, player_data_dict[input4][1], player_data_dict[input4][2], player_data_dict[input4][0]])
     if prediction == 0:
-        st.write("The team will Lose")
+        st.write("The Batting team will Lose")
     elif prediction == 1:
-        st.write("The team will Win")
+        st.write("The Batting team will Win")
