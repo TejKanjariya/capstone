@@ -1,5 +1,5 @@
 import streamlit as st
-import scikit-learn
+import sklearn
 import pickle
 
 # Your model loading code (e.g., using joblib, pickle, or your preferred method)
