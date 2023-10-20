@@ -1,6 +1,6 @@
 import streamlit as st
 import pandas as pd
-from skimage import io
+# from skimage import io
 import matplotlib.pyplot as plt
 import plotly.graph_objects as go
 
