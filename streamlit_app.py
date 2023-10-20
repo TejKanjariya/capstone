@@ -98,7 +98,8 @@ city = {
     'Ranchi': 33
 }
 
-st.title("")
+st.title("Cricket Prediction Using ML")
+st.title("Inputs are for 2nd Inning")
 
 # Input elements (10 inputs)
 # input1 = st.selectbox("Select Batting Team", list(batting_team.keys()))
